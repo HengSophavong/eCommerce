@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,10 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+route::get('/',[HomeController::class, 'index'] );
 
 Route::middleware([
     'auth:sanctum',
@@ -26,3 +23,5 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+route::get('/redirect',[HomeController::class, 'redirect'] );
